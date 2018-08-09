@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class EventReader : MonoBehaviour, IPointerClickHandler {
     public string txtFile;
     public Text EventText;
-     public string[] lineByLine;
+    public string[] lineByLine;
     public float letterPause;
     bool CoRunning;
     Coroutine co;
