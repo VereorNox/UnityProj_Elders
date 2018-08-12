@@ -6,8 +6,8 @@ using UnityEngine;
 public class GenerateColonists : MonoBehaviour 
 {
 
-	public string nameFile, professionFile, raceFile;
-	public static List<string> allNames, allProfessions, allRaces;
+	public string nameFile, professionFile, raceFile, natureFile;
+	public static List<string> allNames, allProfessions, allRaces, allNatures;
 	
 	
 	void Awake() {
@@ -23,6 +23,10 @@ public class GenerateColonists : MonoBehaviour
 		TextAsset raceAsset = (TextAsset)Resources.Load(raceFile);	
 		allRaces = raceAsset.text.Split('\n').ToList();
 		}
+		if(allNatures == null) {
+			TextAsset natureAsset = (TextAsset)Resources.Load(natureFile);
+			allNatures = natureAsset.text.Split('\n').ToList();
+		}
 	}
 	public static List<string> PassName {
 		get { return allNames; } }
@@ -30,4 +34,6 @@ public class GenerateColonists : MonoBehaviour
 		get { return allProfessions; } }
 	public static List<string> PassRace {
 		get { return allRaces; } }
+	public static List<string> PassNature {
+		get { return allNatures; } }
 }

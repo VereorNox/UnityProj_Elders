@@ -10,17 +10,15 @@ public class PopulationCounter : MonoBehaviour, IPointerClickHandler {
 	public static List<Colonist> Colonists = new List<Colonist>();
 	public static Text PopulationMenu;
 
-	
-
 	void Start () {
 		PopulationText = GameObject.Find("PopulationCounter").GetComponent<Text>();
-		PopulationMenu = GameObject.Find("Population Menu").GetComponent<Text>();
+		PopulationMenu = GameObject.Find("Panel").GetComponentInChildren<Text>();
 		Colonists = new List<Colonist>();
 		Colonists.Add(new Colonist());
-		Colonists.Add(new Colonist());	
+		Colonists.Add(new Colonist());
 		PopulationText.text = "Population: "+Colonists.Count;
 		foreach(Colonist colonist in Colonists) {
-			PopulationMenu.text += "\n"+colonist.cName+" the "+colonist.cRace+" "+colonist.cProfession;
+			PopulationMenu.text += "\n"+colonist.cName+" the "+colonist.cRace+" "+colonist.cProfession+" has a "+colonist.cNature+" Nature.";
 		}
 
 	}
@@ -31,7 +29,7 @@ public class PopulationCounter : MonoBehaviour, IPointerClickHandler {
 		}
 		PopulationMenu.text = "Population Menu";
 		foreach(Colonist colonist in Colonists) {
-			PopulationMenu.text += "\n"+colonist.cName+" the "+colonist.cRace+" "+colonist.cProfession;
+			PopulationMenu.text += "\n"+colonist.cName+" the "+colonist.cRace+" "+colonist.cProfession+" has a "+colonist.cNature+" Nature.";
 		}
 		PopulationText.text = "Population: "+Colonists.Count;
 	}
